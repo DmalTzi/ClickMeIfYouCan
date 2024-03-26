@@ -1,5 +1,6 @@
 const express = require("express")
 const cors = require("cors")
+const path = require("path")
 const mongoose = require("mongoose")
 app = express()
 
@@ -13,6 +14,7 @@ const Text = mongoose.model("text", textSchema)
 
 app.use(express.json())
 app.use(cors())
+app.use(express.static(path.join(__dirname,'../')));
 
 app.post("/api", async(req,res)=>{
     try {

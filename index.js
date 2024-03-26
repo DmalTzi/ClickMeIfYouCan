@@ -9,13 +9,13 @@ function move(event){
     btnDOM.style.left = `${x}%`
 }
 
-async function ah(event){
+async function ah(){
     let inputDOM = document.querySelector("input[name='SaySomeThing']")
     let saySomeThing = document.getElementById("SaySomeThing")
     saySomeThing.innerText = inputDOM.value
     try{
         let text = JSON.stringify({text:inputDOM.value})
-        await fetch("http://localhost:8000/api",{
+        await fetch("/api",{
             method: "POST",
             mode: "cors",
             headers: {
